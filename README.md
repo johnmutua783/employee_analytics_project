@@ -31,8 +31,8 @@ The dataset contains employee-level information including:
 
 ## Project Structure
 
-* `employee_analysis.sql` → Data cleaning and analysis queries
-* Tableau Dashboard → Interactive visualization of workforce trends
+* `employee_analysis.sql` - Data cleaning and analysis queries
+* Tableau Dashboard - Interactive visualization of workforce trends
 
 ---
 
