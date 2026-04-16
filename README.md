@@ -58,32 +58,29 @@ The analysis focused on answering key business questions:
 
 ## Key Insights
 
-* The overall **employee turnover rate is significant**, indicating potential retention challenges.
 
-* Employees in certain **education categories show higher turnover**, suggesting mismatches in role expectations or career growth opportunities.
+* Employees with Bachelor's degrees recorded the highest turnover rates, suggesting potential dissatisfaction or increased external job opportunities within this group.
 
-* **Turnover varies across cities**, indicating location-specific workforce challenges.
+* Certain cities exhibited significantly higher attrition rates, indicating location-specific workforce challenges such as work environment, cost of living, or competitive job markets.
 
-* A notable percentage of employees were **previously benched**, which may contribute to dissatisfaction and eventual attrition.
+* Employees who had been previously benched showed a higher likelihood of leaving the company, suggesting that benching may negatively impact employee engagement and retention.
 
-* Hiring trends show fluctuations over the years, with peaks followed by declines, indicating inconsistent workforce planning.
+* Hiring trends fluctuated across years, pointing to inconsistent workforce planning and potential instability in talent acquisition strategies.
 
-* Gender-based analysis shows **differences in experience levels and turnover**, highlighting potential diversity or engagement gaps.
-
+* Turnover rates vary across gender and experience levels, highlighting possible disparities in role alignment, career growth opportunities, or workplace satisfaction.
 ---
 
 ## Recommendations
 
-* Improve **employee retention strategies**, especially for high-turnover education groups.
+* Investigate the causes of high turnover among employees with Bachelor's degrees and implement targeted retention strategies such as career development programs or role progression plans.
 
-* Reduce bench time by improving **project allocation and workforce utilization**.
+* Conduct deeper analysis in high-attrition cities to identify underlying issues and improve working conditions, compensation structures, or organizational support.
 
-* Develop **location-specific HR strategies** to address city-level challenges.
+* Review and improve bench management practices to ensure employees remain engaged through training, project allocation, or skill development opportunities.
 
-* Implement **consistent hiring strategies** to avoid workforce instability.
+* Implement more consistent workforce planning strategies to stabilize hiring patterns and align recruitment with long-term business goals.
 
-* Enhance **employee engagement programs** to reduce attrition risk.
-
+* Address disparities across gender and experience levels by reviewing compensation, promotion pathways, and role assignments to ensure fairness and inclusivity.
 ---
 
 ## Dashboard
