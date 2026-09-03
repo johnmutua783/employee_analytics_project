@@ -83,7 +83,7 @@ The analysis focused on answering key business questions:
 * Address disparities across gender and experience levels by reviewing compensation, promotion pathways, and role assignments to ensure fairness and inclusivity.
 ---
 
-## Dashboard
+-- ## Dashboard
 
 The Tableau dashboard provides an interactive view of:
 
@@ -94,10 +94,10 @@ The Tableau dashboard provides an interactive view of:
 
 ---
 
-## Conclusion
+-- ## Conclusion
 
 This project demonstrates how employee data can be used to uncover workforce trends and support HR decision-making. By combining SQL analysis with Tableau visualization, the project provides actionable insights for improving employee retention and organizational planning.
 
-## Live Dashboard
+--- ## Live Dashboard
 
-[View Tableau Dashboard](https://public.tableau.com/app/profile/issa.gwan/viz/Employee_Analytics/Dashboard1?publish=yes)
+--- [View Tableau Dashboard](https://public.tableau.com/app/profile/issa.gwan/viz/Employee_Analytics/Dashboard1?publish=yes)
