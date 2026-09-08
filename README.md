@@ -108,8 +108,8 @@ The analysis produced the following workforce-level metrics:
 | Employees Left     |      1,088 |
 | Employees Stayed   |      1,676 |
 | Attrition Rate     |     39.36% |
-| Average Age        |      30.95 |
-| Average Experience | 2.64 years |
+| Average Age        |      31 |
+| Average Experience | 3 years |
 | Bench Rate         |     13.06% |
 
 Overall, **1,088 of the 2,764 employees in the cleaned dataset were recorded as having left**, resulting in an observed attrition rate of **39.36%**.
@@ -285,11 +285,11 @@ This visualization compares the proportion of employees who stayed and left acro
 
 ---
 
-## Highest Observed Attrition Segments
+## Attrition by Education Level
 
-The dashboard highlights the employee segments with the highest observed attrition rates identified during the analysis.
+This visualization shows attrition rate across the three levels of education.
 
-![Highest Observed Attrition Segments](screenshots/attrition_segments.png)
+![Highest Observed Attrition Segments](screenshots/attrition_by_education.png)
 
 ---
 
