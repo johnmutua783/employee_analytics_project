@@ -50,7 +50,6 @@ After removing exact duplicate records, the analytical dataset contained:
 
 **2,764 unique records**
 
-> Note: These are referred to as exact duplicate records rather than duplicate employees because the dataset does not provide a unique employee ID.
 
 ---
 
@@ -60,8 +59,6 @@ After removing exact duplicate records, the analytical dataset contained:
 | -------- | ------------------------------------------------ |
 | MySQL    | Data cleaning, transformation and analysis       |
 | Power BI | Data visualization and dashboard development     |
-| DAX      | Measures and KPI calculations                    |
-| GitHub   | Project documentation and portfolio presentation |
 
 ---
 
@@ -99,11 +96,6 @@ The final analytical table contains:
 * `AgeGroup`
 * `ExperienceGroup`
 * `PaymentTierLabel`
-
-The complete cleaning process is documented in:
-
-`documentation/employee_attrition_sql_cleaning.docx`
-
 ---
 
 # Key Performance Indicators
@@ -315,77 +307,6 @@ Available filters include:
 * Experience Group
 
 Selecting a filter updates the relevant KPIs and visualizations, allowing users to investigate specific workforce segments.
-
----
-
-# DAX Measures
-
-The following DAX measures were created in Power BI.
-
-### Total Employees
-
-```DAX
-Total Employees =
-COUNTROWS(employee_clean)
-```
-
-### Employees Left
-
-```DAX
-Employees Left =
-CALCULATE(
-    COUNTROWS(employee_clean),
-    employee_clean[LeaveOrNot] = 1
-)
-```
-
-### Employees Stayed
-
-```DAX
-Employees Stayed =
-CALCULATE(
-    COUNTROWS(employee_clean),
-    employee_clean[LeaveOrNot] = 0
-)
-```
-
-### Attrition Rate
-
-```DAX
-Attrition Rate =
-DIVIDE(
-    [Employees Left],
-    [Total Employees],
-    0
-)
-```
-
-### Average Age
-
-```DAX
-Average Age =
-AVERAGE(employee_clean[Age])
-```
-
-### Average Experience
-
-```DAX
-Average Experience =
-AVERAGE(employee_clean[ExperienceInCurrentDomain])
-```
-
-### Bench Rate
-
-```DAX
-Bench Rate =
-DIVIDE(
-    CALCULATE(
-        COUNTROWS(employee_clean),
-        employee_clean[EverBenched] = 1
-    ),
-    [Total Employees]
-)
-```
 
 ---
 
