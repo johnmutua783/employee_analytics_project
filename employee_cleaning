@@ -1,1 +1,111 @@
+-- Employee Attrition & Retention Analysis — SQL Cleaning
 
+
+-- Create the cleaned table
+
+DROP TABLE IF EXISTS employee_clean;
+
+CREATE TABLE employee_clean AS
+SELECT DISTINCT
+    Education,
+    JoiningYear,
+    City,
+    PaymentTier,
+    Age,
+    Gender,
+    CASE
+        WHEN EverBenched = 'Yes' THEN 1
+        WHEN EverBenched = 'No' THEN 0
+        ELSE NULL
+    END AS EverBenched,
+    ExperienceInCurrentDomain,
+    LeaveOrNot,
+    CASE
+        WHEN LeaveOrNot = 1 THEN 'Left'
+        WHEN LeaveOrNot = 0 THEN 'Stayed'
+        ELSE 'Unknown'
+    END AS AttritionStatus,
+    CASE
+        WHEN Age < 25 THEN 'Under 25'
+        WHEN Age BETWEEN 25 AND 34 THEN '25-34'
+        WHEN Age BETWEEN 35 AND 44 THEN '35-44'
+        ELSE '45+'
+    END AS AgeGroup,
+    CASE
+        WHEN ExperienceInCurrentDomain = 0 THEN '0 Years'
+        WHEN ExperienceInCurrentDomain BETWEEN 1 AND 2 THEN '1-2 Years'
+        WHEN ExperienceInCurrentDomain BETWEEN 3 AND 4 THEN '3-4 Years'
+        ELSE '5+ Years'
+    END AS ExperienceGroup,
+    CASE
+        WHEN PaymentTier = 1 THEN 'Tier 1'
+        WHEN PaymentTier = 2 THEN 'Tier 2'
+        WHEN PaymentTier = 3 THEN 'Tier 3'
+        ELSE 'Unknown'
+    END AS PaymentTierLabel
+FROM employee;
+
+-- Validate the cleaned table
+
+-- Record count — confirms the number of records after exact duplicate removal. Result: 2,764.
+
+SELECT COUNT(*) AS CleanRecords
+FROM employee_clean;
+
+-- Sample check — previews the cleaned table and derived fields.
+
+SELECT *
+FROM employee_clean
+LIMIT 10;
+
+-- Check key distributions
+
+-- Attrition status — counts employees who stayed versus left.
+
+SELECT
+    AttritionStatus,
+    COUNT(*) AS Employees
+FROM employee_clean
+GROUP BY AttritionStatus;
+
+-- Age group — counts employees in each age segment and keeps the intended age order.
+
+SELECT
+    AgeGroup,
+    COUNT(*) AS Employees
+FROM employee_clean
+GROUP BY AgeGroup
+ORDER BY
+    CASE
+        WHEN AgeGroup = 'Under 25' THEN 1
+        WHEN AgeGroup = '25-34' THEN 2
+        WHEN AgeGroup = '35-44' THEN 3
+        WHEN AgeGroup = '45+' THEN 4
+    END;
+
+-- Experience group — counts employees by experience segment.
+
+SELECT
+    ExperienceGroup,
+    COUNT(*) AS Employees
+FROM employee_clean
+GROUP BY ExperienceGroup
+ORDER BY
+    CASE
+        WHEN ExperienceGroup = '0 Years' THEN 1
+        WHEN ExperienceGroup = '1-2 Years' THEN 2
+        WHEN ExperienceGroup = '3-4 Years' THEN 3
+        WHEN ExperienceGroup = '5+ Years' THEN 4
+    END;
+
+-- Payment tier — counts employees by business-friendly payment tier label.
+
+SELECT
+    PaymentTierLabel,
+    COUNT(*) AS Employees
+FROM employee_clean
+GROUP BY PaymentTierLabel
+ORDER BY PaymentTierLabel;
+
+-- Cleaning outcome
+-- The source table had 4,653 records. SELECT DISTINCT produced 2,764 unique records for the analytical table. EverBenched was standardized to 1/0, while attrition, age, experience, and payment-tier labels were added for analysis and reporting.
